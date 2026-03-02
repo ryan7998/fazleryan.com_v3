@@ -17,7 +17,7 @@ const heroPills = [
 <template>
   <section
     ref="containerRef"
-    class="hero-banner relative w-full max-w-full overflow-hidden px-6 pt-20 pb-0 box-border"
+    class="hero-banner relative flex w-full max-w-full items-center overflow-hidden px-6 pt-24 pb-10 box-border"
     aria-label="Hero"
     @mousemove="onMouseMove"
     @mouseleave="onMouseLeave"
@@ -31,13 +31,14 @@ const heroPills = [
     <!-- Overlay for text readability (desktop) -->
     <div
       class="absolute inset-0 pointer-events-none hidden md:block"
+      style="background: var(--hero-blend-overlay);"
     />
 
     <!-- Content: on mobile = text + circular photo below; on desktop = text over banner -->
-    <div class="hero-inner relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex min-h-[65vh] flex-col justify-center gap-10 pb-8 md:min-h-[70vh] md:gap-0 md:pb-0">
+    <div class="hero-inner relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex flex-col gap-8 pb-6 md:pb-10">
       <div class="hero-copy max-w-[640px] font-heading">
         <h1 class="mb-5 text-[36px] font-bold leading-[1.15] text-[var(--hero-text-primary)] md:text-[42px] lg:text-[48px]">
-          Full-Stack Engineer building scalable web apps, APIs, and crawlers.
+          Full-Stack Prouct Engineer building scalable web apps, APIs, and crawlers.
         </h1>
         <p
           class="mb-8 max-w-[560px] text-base leading-relaxed text-[var(--hero-text-secondary)] md:text-lg"
