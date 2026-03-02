@@ -1,10 +1,18 @@
 <script setup>
+const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
+  tiltAmount: 10,
+  cssPrefix: 'hero',
+})
 </script>
 
 <template>
   <section
+    ref="containerRef"
     class="hero-banner relative w-full max-w-full overflow-hidden px-6 pt-20 pb-0 box-border"
     aria-label="Hero"
+    @mousemove="onMouseMove"
+    @mouseleave="onMouseLeave"
+    :style="style"
   >
     <!-- Full-bleed banner only on desktop; on mobile we use text + circular image -->
     <div
@@ -18,7 +26,7 @@
     />
 
     <!-- Content: on mobile = text + circular photo below; on desktop = text over banner -->
-    <div class="relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex min-h-[65vh] flex-col justify-center gap-10 pb-8 md:min-h-[70vh] md:gap-0 md:pb-0">
+    <div class="hero-inner relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex min-h-[65vh] flex-col justify-center gap-10 pb-8 md:min-h-[70vh] md:gap-0 md:pb-0">
       <div class="max-w-[600px] font-heading">
         <p class="mb-4 text-xl text-[var(--text-muted)] md:text-2xl">
           Hi, I'm Fazle
@@ -78,13 +86,41 @@
 .hero-banner {
   width: 100%;
   min-height: 65vh;
-  /* Proportional on wide screens so banner doesn’t look horizontally stretched */
   background: linear-gradient(180deg, var(--bg-primary) 0%, color-mix(in oklch, var(--bg-primary) 85%, var(--accent) 15%) 100%);
 }
 .hero-banner-bg {
   min-height: 100%;
   background-size: cover;
   background-position: center top;
+  transform-origin: center;
+  transform: translate3d(calc(var(--hero-tilt-y, 0deg) * 0.6), calc(var(--hero-tilt-x, 0deg) * 0.6), 0);
+  transition: transform 200ms ease-out;
+}
+
+/* Interactive glow that follows the cursor on desktop */
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(
+      circle at var(--hero-glow-x, 50%) var(--hero-glow-y, 40%),
+      rgba(59, 130, 246, 0.22),
+      transparent 60%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 200ms ease-out, background-position 200ms ease-out;
+}
+
+.hero-inner {
+  transform-style: preserve-3d;
+  transform:
+    perspective(1400px)
+    rotateX(var(--hero-tilt-x, 0deg))
+    rotateY(var(--hero-tilt-y, 0deg));
+  transition: transform 200ms ease-out;
 }
 
 /* Show more of the top of the photo in the circle (stops head from being cut) */
