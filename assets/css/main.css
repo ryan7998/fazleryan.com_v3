@@ -12,10 +12,13 @@
   --text-secondary: #CBD5E1;
   --text-muted: #94A3B8;
   --border: #1F2937;
-  /* Hero: dark blue/indigo base with subtle blue toward the right (behind profile) */
-  --hero-gradient: linear-gradient(135deg, #0F172A 0%, #111827 35%, #0f172a 65%, #1e3a5f 88%, #1D4ED8 100%);
-  --hero-blend-overlay: linear-gradient(to right, #0F172A 0%, #111827 22%, rgba(17, 24, 39, 0.94) 38%, rgba(17, 24, 39, 0.6) 52%, rgba(17, 24, 39, 0.2) 68%, transparent 82%);
+  --accent-purple: #7C3AED;
+  --accent-purple-hover: #6D28D9;
+  /* Hero: brighter gradient for new design */
+  --hero-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 95, 0.6) 50%, rgba(124, 58, 237, 0.25) 100%);
+  --hero-blend-overlay: linear-gradient(to right, rgba(15, 23, 42, 0.88) 0%, rgba(17, 24, 39, 0.5) 45%, transparent 75%);
   --footer-gradient: linear-gradient(180deg, #0F172A 0%, #1D4ED8 100%);
+  --wave-gradient: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.97) 25%, #0F172A 100%);
 }
 
 @theme {
@@ -25,12 +28,15 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);

@@ -3,91 +3,108 @@
 
 <template>
   <section
-    class="relative overflow-hidden px-6 pb-24 pt-20 md:min-h-[560px]"
-    style="background: var(--hero-gradient);"
+    class="hero-banner relative w-full max-w-full overflow-hidden px-6 pt-20 pb-0 box-border"
+    aria-label="Hero"
   >
-    <!-- Desktop: full-bleed image on the right -->
-    <img
-      src="/profile.png"
-      alt=""
-      class="absolute top-0 right-0 hidden w-[70%] h-full select-none object-cover object-top pointer-events-none md:block"
-      aria-hidden="true"
+    <!-- Full-bleed banner only on desktop; on mobile we use text + circular image -->
+    <div
+      class="hero-banner-bg absolute inset-0 hidden bg-no-repeat md:block"
+      style="background-image: url('/hero-banner.png');"
     />
-
-    <!-- Desktop: left + bottom blend overlays (only when full-bleed image is visible) -->
+    <!-- Overlay for text readability (desktop) -->
     <div
       class="absolute inset-0 pointer-events-none hidden md:block"
       style="background: var(--hero-blend-overlay);"
     />
-    <div
-      class="absolute inset-0 pointer-events-none hidden md:block"
-      style="background: linear-gradient(to top, #0F172A 0%, rgba(15, 23, 42, 0.85) 12%, transparent 38%);"
-    />
 
-    <!-- Content wrapper: column on mobile (text then image), same as before on desktop -->
-    <div class="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center gap-10 md:block md:gap-0">
-      <!-- Text block -->
-      <div class="max-w-[560px] font-heading text-center md:text-left">
-        <p class="mb-3 text-lg text-[var(--text-muted)]">
-          Hello, I'm Fazle
+    <!-- Content: on mobile = text + circular photo below; on desktop = text over banner -->
+    <div class="relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex min-h-[65vh] flex-col justify-center gap-10 pb-8 md:min-h-[70vh] md:gap-0 md:pb-0">
+      <div class="max-w-[600px] font-heading">
+        <p class="mb-4 text-xl text-[var(--text-muted)] md:text-2xl">
+          Hi, I'm Fazle
         </p>
-        <h1 class="mb-5 text-[40px] font-bold leading-[1.15] text-[var(--text-primary)] md:text-[56px]">
-          I build things <span class="text-[var(--accent)]">for the web.</span>
+        <h1 class="mb-6 text-[48px] font-bold leading-[1.1] text-[var(--text-primary)] md:text-[64px]">
+          I build <span class="text-[var(--accent)]">web</span> solutions.
         </h1>
         <p
-          class="mb-8 max-w-[480px] text-base leading-relaxed text-[var(--text-secondary)] md:mx-0"
+          class="mb-10 max-w-[520px] text-lg leading-relaxed text-[var(--text-secondary)] md:text-xl"
           style="font-family: var(--font-body);"
         >
-          I'm a web developer specializing in building exceptional digital experiences.
-          Currently, I'm focused on creating accessible, human-centered products.
+          I'm a web developer specializing in building accessible, human-centered digital products.
         </p>
-        <div class="flex flex-wrap justify-center gap-4 md:justify-start">
+        <div class="flex flex-wrap gap-4">
           <NuxtLink
             to="/#portfolio"
-            class="inline-flex min-h-[44px] items-center justify-center rounded-[10px] px-7 py-3.5 text-[15px] font-semibold text-white no-underline shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
+            class="inline-flex min-h-[48px] items-center justify-center rounded-[10px] px-8 py-4 text-base font-semibold text-white no-underline shadow-[0_10px_25px_rgba(37,99,235,0.3)] transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:text-[17px]"
             style="background: var(--accent);"
           >
-            View Portfolio
+            View My Work
           </NuxtLink>
           <NuxtLink
             to="/#contact"
-            class="inline-flex min-h-[44px] items-center justify-center rounded-[10px] border px-7 py-3.5 text-[15px] font-semibold text-[var(--text-primary)] no-underline transition duration-200 hover:bg-white/[0.08] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-            style="background: rgba(255,255,255,0.05); border-color: var(--border);"
+            class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[10px] px-8 py-4 text-base font-semibold text-white no-underline shadow-[0_10px_25px_rgba(124,58,237,0.25)] transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent-purple)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:text-[17px]"
+            style="background: var(--accent-purple);"
           >
-            Get in Touch
+            Contact Me
+            <span class="text-[0.9em]" aria-hidden="true">&rsaquo;</span>
           </NuxtLink>
         </div>
       </div>
 
-      <!-- Mobile-only: circular profile with glow (creative focal point) -->
-      <div class="hero-mobile-avatar relative flex-shrink-0 md:hidden">
-        <div class="relative h-[220px] w-[220px] overflow-hidden rounded-full ring-4 ring-[var(--accent)]/40 shadow-[0_0_0_1px_rgba(37,99,235,0.2),0_0_60px_rgba(37,99,235,0.25)]">
+      <!-- Mobile: circular profile image below the copy -->
+      <div class="hero-mobile-avatar flex justify-center md:hidden" aria-hidden="true">
+        <div class="hero-avatar-ring relative flex h-[200px] w-[200px] shrink-0 items-center justify-center sm:h-[240px] sm:w-[240px]">
           <img
             src="/profile_mobile.png"
-            alt="Fazle Ryan Chowdhury"
-            class="h-full w-full object-cover object-top"
-            width="220"
-            height="220"
+            alt=""
+            class="hero-mobile-img h-full w-full rounded-full object-cover"
+            width="240"
+            height="240"
           />
         </div>
       </div>
+    </div>
+
+    <!-- Wave transition at bottom of hero (flows into content section) -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" aria-hidden="true">
+      <svg class="absolute bottom-0 w-full h-full" viewBox="0 0 1440 96" preserveAspectRatio="none">
+        <path fill="var(--bg-primary)" d="M0 96V48 Q360 0 720 48 T1440 48V96H0Z" />
+      </svg>
     </div>
   </section>
 </template>
 
 <style scoped>
-.hero-mobile-avatar img {
-  animation: hero-avatar-in 0.6s ease-out;
+.hero-banner {
+  width: 100%;
+  min-height: 65vh;
+  /* Proportional on wide screens so banner doesn’t look horizontally stretched */
+  background: linear-gradient(180deg, var(--bg-primary) 0%, color-mix(in oklch, var(--bg-primary) 85%, var(--accent) 15%) 100%);
+}
+.hero-banner-bg {
+  min-height: 100%;
+  background-size: cover;
+  background-position: center top;
 }
 
-@keyframes hero-avatar-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
+/* Show more of the top of the photo in the circle (stops head from being cut) */
+.hero-mobile-img {
+  object-position: center 20%;
+}
+.hero-avatar-ring {
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 4px color-mix(in oklch, var(--accent) 25%, transparent),
+    0 20px 40px rgba(0, 0, 0, 0.15);
+}
+@media (min-width: 768px) {
+  .hero-banner {
+    min-height: 70vh;
+    aspect-ratio: 16 / 9;
+    background: none;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  .hero-banner-bg {
+    background-position: right top;
   }
 }
 </style>
