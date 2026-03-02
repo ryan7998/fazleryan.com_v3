@@ -1,3 +1,5 @@
+import { ref, computed } from 'vue'
+
 /**
  * Reusable mouse-follow tilt and glow for interactive panels/banners.
  * Tracks cursor over a container and exposes CSS variables for 3D tilt and a glow position.
