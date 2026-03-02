@@ -2,23 +2,37 @@
 
 /* Style guide CSS variables */
 :root {
-  --bg-primary: #111827;
-  --bg-secondary: #0F172A;
-  --accent: #2563EB;
-  --accent-hover: #1D4ED8;
-  --soft-blue: #3B82F6;
-  --light-blue: #93C5FD;
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
-  --border: #1F2937;
-  --accent-purple: #7C3AED;
-  --accent-purple-hover: #6D28D9;
-  /* Hero: brighter gradient for new design */
-  --hero-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 95, 0.6) 50%, rgba(124, 58, 237, 0.25) 100%);
-  --hero-blend-overlay: linear-gradient(to right, rgba(15, 23, 42, 0.88) 0%, rgba(17, 24, 39, 0.5) 45%, transparent 75%);
-  --footer-gradient: linear-gradient(180deg, #0F172A 0%, #1D4ED8 100%);
-  --wave-gradient: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.97) 25%, #0F172A 100%);
+  /* Light, slightly lavender page background + white cards */
+  --bg-primary: #eef2ff;
+  --bg-secondary: #ffffff;
+
+  /* Brand accents (kept from previous design) */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --soft-blue: #3b82f6;
+  --light-blue: #93c5fd;
+  --accent-purple: #7c3aed;
+  --accent-purple-hover: #6d28d9;
+
+  /* Darker text on bright background */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #6b7280;
+
+  /* Softer borders for light theme */
+  --border: #e2e8f0;
+
+
+  /* Hero: darker text + pills on light surface */
+  --hero-text-primary: #0f172a;
+  --hero-text-secondary: #334155;
+  --hero-text-muted: #64748b;
+  --hero-pill-bg: rgba(255, 255, 255, 0.96);
+  --hero-pill-text: #1e293b;
+
+  /* Footer + wave now blend from light surface into accent gradient */
+  --footer-gradient: linear-gradient(180deg, #e0ecff 0%, #4f46e5 50%, #7c3aed 100%);
+  --wave-gradient: linear-gradient(180deg, transparent 0%, rgba(226, 232, 240, 0.96) 25%, #eef2ff 100%);
 }
 
 @theme {

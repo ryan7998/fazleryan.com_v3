@@ -1,8 +1,17 @@
 <script setup>
 const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
-  tiltAmount: 10,
+  tiltAmount: 3,
   cssPrefix: 'hero',
 })
+
+const heroPills = [
+  'Laravel APIs',
+  'Node.js Automation',
+  'Playwright Crawling',
+  'Redis & Bull Queues',
+  'Vue.js Dashboards',
+  'Elasticsearch Pipelines',
+]
 </script>
 
 <template>
@@ -22,40 +31,48 @@ const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
     <!-- Overlay for text readability (desktop) -->
     <div
       class="absolute inset-0 pointer-events-none hidden md:block"
-      style="background: var(--hero-blend-overlay);"
     />
 
     <!-- Content: on mobile = text + circular photo below; on desktop = text over banner -->
     <div class="hero-inner relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex min-h-[65vh] flex-col justify-center gap-10 pb-8 md:min-h-[70vh] md:gap-0 md:pb-0">
-      <div class="max-w-[600px] font-heading">
-        <p class="mb-4 text-xl text-[var(--text-muted)] md:text-2xl">
-          Hi, I'm Fazle
-        </p>
-        <h1 class="mb-6 text-[48px] font-bold leading-[1.1] text-[var(--text-primary)] md:text-[64px]">
-          I build <span class="text-[var(--accent)]">web</span> solutions.
+      <div class="hero-copy max-w-[640px] font-heading">
+        <h1 class="mb-5 text-[36px] font-bold leading-[1.15] text-[var(--hero-text-primary)] md:text-[42px] lg:text-[48px]">
+          Full-Stack Engineer building scalable web apps, APIs, and crawlers.
         </h1>
         <p
-          class="mb-10 max-w-[520px] text-lg leading-relaxed text-[var(--text-secondary)] md:text-xl"
+          class="mb-8 max-w-[560px] text-base leading-relaxed text-[var(--hero-text-secondary)] md:text-lg"
           style="font-family: var(--font-body);"
         >
-          I'm a web developer specializing in building accessible, human-centered digital products.
+          Laravel + Node.js + Vue/React. Production systems with queues, real-time updates, and data pipelines.
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="mb-8 flex flex-wrap gap-3">
           <NuxtLink
             to="/#portfolio"
-            class="inline-flex min-h-[48px] items-center justify-center rounded-[10px] px-8 py-4 text-base font-semibold text-white no-underline shadow-[0_10px_25px_rgba(37,99,235,0.3)] transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:text-[17px]"
-            style="background: var(--accent);"
+            class="hero-btn-primary inline-flex min-h-[48px] items-center justify-center rounded-xl px-7 py-3.5 text-[15px] font-semibold text-white no-underline shadow-lg transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent-purple)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:text-[16px]"
+            style="background: var(--accent-purple);"
           >
-            View My Work
+            View Projects
           </NuxtLink>
           <NuxtLink
             to="/#contact"
-            class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[10px] px-8 py-4 text-base font-semibold text-white no-underline shadow-[0_10px_25px_rgba(124,58,237,0.25)] transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent-purple)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:text-[17px]"
-            style="background: var(--accent-purple);"
+            class="hero-btn-secondary inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 px-7 py-3.5 text-[15px] font-semibold no-underline transition duration-200 hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent-purple)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:text-[16px]"
+            style="color: var(--hero-text-primary); border-color: var(--accent-purple); background: white;"
           >
-            Contact Me
-            <span class="text-[0.9em]" aria-hidden="true">&rsaquo;</span>
+            Contact
           </NuxtLink>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span
+            v-for="pill in heroPills"
+            :key="pill"
+            class="hero-pill inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-medium md:text-[14px]"
+            style="background: var(--hero-pill-bg); color: var(--hero-pill-text);"
+          >
+            <svg class="h-3.5 w-3.5 shrink-0 text-[var(--accent-purple)]" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M4 3l3 4-3 4M10 3l-3 4 3 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{ pill }}
+          </span>
         </div>
       </div>
 
@@ -86,7 +103,6 @@ const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
 .hero-banner {
   width: 100%;
   min-height: 65vh;
-  background: linear-gradient(180deg, var(--bg-primary) 0%, color-mix(in oklch, var(--bg-primary) 85%, var(--accent) 15%) 100%);
 }
 .hero-banner-bg {
   min-height: 100%;
@@ -95,23 +111,6 @@ const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
   transform-origin: center;
   transform: translate3d(calc(var(--hero-tilt-y, 0deg) * 0.6), calc(var(--hero-tilt-x, 0deg) * 0.6), 0);
   transition: transform 200ms ease-out;
-}
-
-/* Interactive glow that follows the cursor on desktop */
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(
-      circle at var(--hero-glow-x, 50%) var(--hero-glow-y, 40%),
-      rgba(59, 130, 246, 0.22),
-      transparent 60%
-    );
-  mix-blend-mode: screen;
-  opacity: 0.7;
-  pointer-events: none;
-  transition: opacity 200ms ease-out, background-position 200ms ease-out;
 }
 
 .hero-inner {

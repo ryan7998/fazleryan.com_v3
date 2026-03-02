@@ -34,18 +34,18 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
       <!-- Brand -->
       <NuxtLink
         to="/"
-        class="text-xl font-bold text-[var(--text-primary)] no-underline transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+        class="text-xl font-bold text-white no-underline transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
         @click="closeMenu"
       >
         Fazle Ryan C.
       </NuxtLink>
 
       <!-- Desktop links -->
-      <ul class="hidden list-none items-center gap-8 p-0 md:flex">
+      <ul class="hidden list-none items-center gap-8 p-0 md:flex text-white">
         <li v-for="link in navLinks" :key="link.label">
           <NuxtLink
             :to="link.to"
-            class="text-[15px] font-medium text-[var(--text-secondary)] no-underline transition duration-200 hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            class="text-[15px] font-medium text-white no-underline transition duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
           >
             {{ link.label }}
           </NuxtLink>
@@ -142,7 +142,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
           <li v-for="link in navLinks" :key="link.label">
             <NuxtLink
               :to="link.to"
-              class="flex items-center gap-3 rounded-xl px-4 py-3.5 text-[16px] font-medium text-[var(--text-secondary)] no-underline transition duration-200 hover:bg-white/5 hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+              class="flex items-center gap-3 rounded-xl px-4 py-3.5 text-[16px] font-medium text-[var(--text-primary)] no-underline transition duration-200 hover:bg-white/5 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               @click="closeMenu"
             >
               {{ link.label }}
