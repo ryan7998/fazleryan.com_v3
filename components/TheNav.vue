@@ -20,7 +20,7 @@ const navLinks = [
         to="/"
         class="text-xl font-bold text-[var(--text-primary)] no-underline transition hover:opacity-90 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
       >
-        Mohammed
+        Fazle Ryan C.
       </NuxtLink>
       <ul class="flex list-none items-center gap-8 p-0">
         <li v-for="link in navLinks" :key="link.label">

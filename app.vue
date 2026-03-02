@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  title: 'Mohammed | Portfolio',
+  title: 'Fazle | Portfolio',
   meta: [{ name: 'description', content: 'Web developer specializing in accessible, human-centered digital experiences.' }],
   link: [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

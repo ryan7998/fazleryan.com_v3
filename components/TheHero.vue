@@ -3,19 +3,37 @@
 
 <template>
   <section
-    class="relative overflow-hidden px-6 pb-24 pt-12"
-    style="background: var(--hero-gradient);"
+    class="relative overflow-hidden px-6 pb-24 pt-20"
+    style="background: var(--hero-gradient); min-height: 560px;"
   >
-    <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 lg:grid-cols-[6fr_4fr] lg:gap-16">
-      <div class="font-heading">
-        <p class="mb-2 text-lg text-[var(--text-muted)]">
-          Hello, I'm Mohammed
+    <img
+      src="/profile.png"
+      alt="Fazle Ryan Chowdhury"
+      class="absolute top-0 right-0 w-[70%] h-full object-cover object-top pointer-events-none select-none"
+      aria-hidden="true"
+    />
+
+    <!-- Left fade: seamless blend of image into dark banner (uses CSS variable for consistency) -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: var(--hero-blend-overlay);"
+    />
+
+    <!-- Text content sits above image and fades -->
+    <div class="relative z-10 mx-auto max-w-[1200px]">
+      <div class="max-w-[560px] font-heading">
+        <p class="mb-3 text-lg text-[var(--text-muted)]">
+          Hello, I'm Fazle
         </p>
         <h1 class="mb-5 text-[56px] font-bold leading-[1.1] text-[var(--text-primary)]">
           I build things <span class="text-[var(--accent)]">for the web.</span>
         </h1>
-        <p class="mb-8 max-w-[540px] text-base leading-relaxed text-[var(--text-secondary)]" style="font-family: var(--font-body);">
-          I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on creating accessible, human-centered products.
+        <p
+          class="mb-8 max-w-[480px] text-base leading-relaxed text-[var(--text-secondary)]"
+          style="font-family: var(--font-body);"
+        >
+          I'm a web developer specializing in building exceptional digital experiences.
+          Currently, I'm focused on creating accessible, human-centered products.
         </p>
         <div class="flex flex-wrap gap-4">
           <NuxtLink
@@ -32,20 +50,6 @@
           >
             Get in Touch
           </NuxtLink>
-        </div>
-      </div>
-      <div class="relative flex justify-center lg:justify-end">
-        <div class="profile-image-wrapper relative inline-block">
-          <img
-            src="/profile.png"
-            alt="Mohammed"
-            class="relative z-10 block w-full max-w-[380px] rounded-2xl object-cover shadow-[0_0_60px_-10px_rgba(37,99,235,0.5),0_10px_40px_rgba(0,0,0,0.4)]"
-          />
-          <div
-            class="pointer-events-none absolute inset-0 z-20 rounded-2xl"
-            style="box-shadow: inset 0 0 80px 20px rgba(15, 23, 42, 0.5);"
-            aria-hidden="true"
-          />
         </div>
       </div>
     </div>
