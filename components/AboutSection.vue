@@ -6,9 +6,7 @@
     <div class="flex flex-col h-full rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)]">
       <!-- Icon -->
       <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl text-[var(--accent)]" style="background: rgba(37, 99, 235, 0.15);">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
+        <i class="fa-solid fa-laptop-code text-xl" aria-hidden="true"></i>
       </div>
       <h2 id="about-heading" class="font-heading mb-3 text-2xl font-semibold text-[var(--text-primary)]">
         About Me

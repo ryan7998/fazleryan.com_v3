@@ -1,8 +1,8 @@
 <script setup>
 const skills = [
-  { name: 'HTML5', icon: 'html5', color: '#E34F26' },
-  { name: 'CSS3', icon: 'css3', color: '#1572B6' },
-  { name: 'React', icon: 'react', color: '#61DAFB' },
+  { name: 'HTML5', iconClass: 'fa-brands fa-html5', color: '#E34F26' },
+  { name: 'CSS3', iconClass: 'fa-brands fa-css3-alt', color: '#1572B6' },
+  { name: 'React', iconClass: 'fa-brands fa-react', color: '#61DAFB' },
 ]
 </script>
 
@@ -22,9 +22,7 @@ const skills = [
             class="flex h-14 w-14 items-center justify-center rounded-xl text-2xl transition transform hover:scale-110"
             :style="{ background: skill.color + '22', color: skill.color }"
           >
-            <span v-if="skill.icon === 'html5'" aria-hidden="true">&lt;/&gt;</span>
-            <span v-else-if="skill.icon === 'css3'" class="font-bold" aria-hidden="true">3</span>
-            <span v-else-if="skill.icon === 'react'" aria-hidden="true">&#x269B;</span>
+            <i :class="['fa-fw', skill.iconClass]" aria-hidden="true"></i>
           </div>
           <span class="text-sm font-medium text-[var(--text-secondary)]">{{ skill.name }}</span>
         </div>

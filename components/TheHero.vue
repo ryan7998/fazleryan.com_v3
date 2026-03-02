@@ -69,9 +69,7 @@ const heroPills = [
             class="hero-pill inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-medium md:text-[14px]"
             style="background: var(--hero-pill-bg); color: var(--hero-pill-text);"
           >
-            <svg class="h-3.5 w-3.5 shrink-0 text-[var(--accent-purple)]" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M4 3l3 4-3 4M10 3l-3 4 3 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <i class="fa-solid fa-circle h-3.5 w-3.5 shrink-0 text-[var(--accent-purple)]" aria-hidden="true"></i>
             {{ pill }}
           </span>
         </div>
