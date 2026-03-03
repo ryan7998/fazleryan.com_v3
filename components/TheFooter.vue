@@ -74,12 +74,31 @@ const navStyle = computed(() => ({
           <p class="font-heading text-xl font-bold text-white tracking-tight">
             Fazle Ryan Chowdhury
           </p>
-          <p class="max-w-[320px] text-sm leading-relaxed" style="color: rgba(203,213,255,0.75);">
-            Full-stack developer crafting reliable,<br>human-centered web products.
+          <p class="max-w-[360px] text-sm leading-relaxed" style="color: rgba(203,213,255,0.75);">
+            Full-stack developer crafting reliable,<br />human-centered web products.
           </p>
 
-          <!-- Social icons -->
-          <div class="flex gap-3 pt-3" aria-label="Social links">
+          <!-- Contact + social -->
+          <div class="mt-3 flex flex-col gap-3 text-sm" aria-label="Contact information">
+            <div class="flex flex-wrap items-center gap-3" style="color: rgba(203,213,255,0.82);">
+              <a
+                href="mailto:mail@fazleryan.com"
+                class="inline-flex items-center gap-2 no-underline transition hover:opacity-100"
+              >
+                <i class="fa-solid fa-envelope text-xs" aria-hidden="true"></i>
+                <span>mail@fazleryan.com</span>
+              </a>
+              <span class="hidden text-[rgba(148,163,184,0.7)] md:inline">·</span>
+              <a
+                href="tel:+14372346677"
+                class="inline-flex items-center gap-2 no-underline transition hover:opacity-100"
+              >
+                <i class="fa-solid fa-phone text-xs" aria-hidden="true"></i>
+                <span>+1 (437) 234-6677</span>
+              </a>
+            </div>
+
+            <div class="flex gap-3 pt-1" aria-label="Social links">
             <a
               href="https://github.com/ryan7998"
               target="_blank"
@@ -116,6 +135,7 @@ const navStyle = computed(() => ({
             >
               <i class="fa-brands fa-linkedin-in text-sm" aria-hidden="true"></i>
             </a>
+            </div>
           </div>
         </div>
 
