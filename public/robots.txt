@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Point crawlers to the sitemap
-Sitemap: https://fazleryan.com/sitemap.xml
+Sitemap: https://www.fazleryan.com/sitemap.xml

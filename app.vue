@@ -1,5 +1,5 @@
 <script setup>
-const SITE_URL = 'https://fazleryan.com'
+const SITE_URL = 'https://www.fazleryan.com'
 const FULL_NAME = 'Fazle Ryan Chowdhury'
 const TITLE = 'Fazle Ryan — Full-Stack Developer | Laravel · Node.js · Vue · React'
 const DESCRIPTION =
