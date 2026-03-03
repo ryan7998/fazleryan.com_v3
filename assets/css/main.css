@@ -36,8 +36,10 @@
 }
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Space Grotesk: tech-forward geometric with character — headings, nav, brand */
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Plus Jakarta Sans: warm humanist body — paragraphs, pills, UI labels */
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -65,4 +67,6 @@ body {
 
 .font-heading {
   font-family: var(--font-sans);
+  /* Space Grotesk reads sharper with a touch of negative letter-spacing */
+  letter-spacing: -0.02em;
 }
