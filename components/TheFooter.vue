@@ -3,8 +3,10 @@ const { canvasRef } = useCanvasWaves({
   orbs: {
     count: 14,
     hues: [245, 260, 280, 210],
-    minR: 25, maxR: 80,
-    minOpacity: 0.05, maxOpacity: 0.18,
+    minR: 25,
+    maxR: 80,
+    minOpacity: 0.05,
+    maxOpacity: 0.18,
     maxSpeed: 0.35,
   },
   waves: [
@@ -14,6 +16,21 @@ const { canvasRef } = useCanvasWaves({
     { amp: 14, freq: 0.018, speed: 0.030, phase: 1.7, yRatio: 0.76, color: 'rgba(79,   70, 229, 0.45)' },
   ],
 })
+
+// Gentle tilt on individual footer blocks
+const {
+  containerRef: brandRef,
+  onMouseMove: onBrandMove,
+  onMouseLeave: onBrandLeave,
+  style: brandTiltStyle,
+} = useMouseTilt({ tiltAmount: 4, cssPrefix: 'footer-brand' })
+
+const {
+  containerRef: navRef,
+  onMouseMove: onNavMove,
+  onMouseLeave: onNavLeave,
+  style: navTiltStyle,
+} = useMouseTilt({ tiltAmount: 4, cssPrefix: 'footer-nav' })
 </script>
 
 <template>
@@ -23,7 +40,7 @@ const { canvasRef } = useCanvasWaves({
     style="background: linear-gradient(180deg, #0f0c29 0%, #1a1060 40%, #24243e 100%); min-height: 280px;"
   >
     <!-- JS canvas: waves + orbs -->
-    <canvas ref="canvasRef" class="absolute inset-0 h-full w-full" aria-hidden="true" />
+    <canvas ref="canvasRef" class="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true" />
 
     <!-- Content layer -->
     <div class="relative z-10 mx-auto flex max-w-[1200px] flex-col gap-10 px-6 py-14">
@@ -32,7 +49,13 @@ const { canvasRef } = useCanvasWaves({
       <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
 
         <!-- Brand -->
-        <div class="space-y-2">
+        <div
+          ref="brandRef"
+          class="space-y-2 footer-brand-tilt"
+          :style="brandTiltStyle"
+          @mousemove="onBrandMove"
+          @mouseleave="onBrandLeave"
+        >
           <p class="font-heading text-xl font-bold text-white tracking-tight">
             Fazle Ryan Chowdhury
           </p>
@@ -82,7 +105,14 @@ const { canvasRef } = useCanvasWaves({
         </div>
 
         <!-- Nav links -->
-        <nav class="flex flex-col gap-3 text-sm md:items-end" aria-label="Footer navigation">
+        <nav
+          ref="navRef"
+          class="flex flex-col gap-3 text-sm md:items-end footer-nav-tilt"
+          :style="navTiltStyle"
+          @mousemove="onNavMove"
+          @mouseleave="onNavLeave"
+          aria-label="Footer navigation"
+        >
           <p class="text-xs font-semibold uppercase tracking-widest" style="color: rgba(203,213,255,0.5);">Navigation</p>
           <NuxtLink
             to="/"
@@ -124,3 +154,25 @@ const { canvasRef } = useCanvasWaves({
     </div>
   </footer>
 </template>
+
+<style scoped>
+.footer-brand-tilt,
+.footer-nav-tilt {
+  transform-style: preserve-3d;
+  transition: transform 180ms ease-out;
+}
+
+.footer-brand-tilt {
+  transform:
+    perspective(1100px)
+    rotateX(var(--footer-brand-tilt-x, 0deg))
+    rotateY(var(--footer-brand-tilt-y, 0deg));
+}
+
+.footer-nav-tilt {
+  transform:
+    perspective(1100px)
+    rotateX(var(--footer-nav-tilt-x, 0deg))
+    rotateY(var(--footer-nav-tilt-y, 0deg));
+}
+</style>
