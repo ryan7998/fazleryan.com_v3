@@ -1,0 +1,56 @@
+# Fazle Ryan — Full-Stack Developer
+
+> Fazle Ryan Chowdhury is a full-stack developer based in Kitchener, ON, Canada (EST timezone). He builds production-grade web applications, REST APIs, real-time systems, and data pipelines.
+
+## About
+
+Fazle Ryan builds web apps that feel simple on the surface and stay solid underneath. His strongest lane is backend and product infrastructure: Laravel and Node.js, clean REST APIs, auth flows, background jobs, queues, caching, and databases that stay consistent under real production load.
+
+On the frontend he works in React and Vue, with a focus on clean layout, consistent components, fast load, and UI states that don't panic when the API is slow or the data is empty.
+
+He uses AI tools to move faster, but treats their output like a junior dev: helpful, not unconditionally trusted. He still reviews, refactors, and tests like a grown-up.
+
+## Contact
+
+- Email: mail@fazleryan.com
+- Phone: +1 (437) 234-6677
+- Website: https://fazleryan.com
+- GitHub: https://github.com/ryan7998
+- LinkedIn: https://www.linkedin.com/in/fazle-ryan
+- Upwork: https://www.upwork.com/freelancers/fazleryan
+
+## Technical Skills
+
+### Backend
+- Laravel (PHP), Node.js, Express
+- REST API design, auth flows (JWT, sessions, OAuth)
+- Background jobs, queues (Bull + Redis, Laravel Horizon)
+- MongoDB, MySQL, PostgreSQL, Redis, Elasticsearch
+- Socket.IO (real-time), Stripe billing, webhooks, idempotency
+
+### Frontend
+- Vue 3 (Composition API, Pinia), React (hooks, context)
+- TypeScript, JavaScript (ES2022+)
+- Nuxt 3, Next.js
+- Tailwind CSS, responsive design
+
+### DevOps / Tooling
+- Docker, Linux, Nginx
+- Playwright (browser automation, scraping), Cheerio (HTML parsing)
+- Hugging Face AI integrations
+- Git, GitHub Actions
+
+## Featured Project: CrawlerPro
+
+A full-stack web crawler platform built for structured data extraction at scale.
+
+- Frontend: Vue 3 dashboard with live crawl progress, nested selectors, CSV/Excel export
+- Backend: Express + MongoDB + Bull/Redis queue pipeline + Socket.IO real-time events
+- Scraping: Playwright (JS-rendered pages) + Cheerio (HTML parsing)
+- AI layer: Hugging Face integration for smarter extraction
+- Live: http://crawler.onthis.website
+- Repo: https://github.com/ryan7998/crawler
+
+## Work History & Availability
+
+Available for freelance and contract work. Based in Canada (EST), working remotely. Clients on Upwork can view full work history at https://www.upwork.com/freelancers/fazleryan.
