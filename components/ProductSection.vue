@@ -13,7 +13,7 @@ function closeProductModal() {
 <template>
   <section
     id="product"
-    class="relative overflow-hidden px-6 py-20"
+    class="relative overflow-hidden px-6 pt-20 pb-10"
     aria-labelledby="product-heading"
   >
     <div class="relative mx-auto w-full max-w-[1200px] space-y-10">

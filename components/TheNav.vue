@@ -2,7 +2,7 @@
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
-  { label: 'Portfolio', to: '/#portfolio' },
+  { label: 'Portfolio', to: '/#product' },
   { label: 'Contact', to: '/#contact' },
 ]
 
@@ -64,7 +64,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
       <!-- Mobile: hamburger button -->
       <button
         type="button"
-        class="relative flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-xl text-[var(--text-primary)] transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] md:hidden"
+        class="relative flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-xl text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] md:hidden"
         :aria-expanded="menuOpen"
         aria-label="Toggle navigation menu"
         @click="toggleMenu"
@@ -123,10 +123,10 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
       >
         <!-- Panel header: brand + close button -->
         <div class="flex items-center justify-between border-b border-[#1F2937] px-6 py-5">
-          <span class="text-lg font-bold text-[var(--text-primary)]">Menu</span>
+          <span class="text-lg font-bold text-white">Menu</span>
           <button
             type="button"
-            class="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-secondary)] transition hover:bg-white/10 hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            class="flex h-10 w-10 items-center justify-center rounded-lg text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label="Close menu"
             @click="closeMenu"
           >
@@ -142,7 +142,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
           <li v-for="link in navLinks" :key="link.label">
             <NuxtLink
               :to="link.to"
-              class="flex items-center gap-3 rounded-xl px-4 py-3.5 text-[16px] font-medium text-[var(--text-primary)] no-underline transition duration-200 hover:bg-white/5 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+              class="flex items-center gap-3 rounded-xl px-4 py-3.5 text-[16px] font-medium text-white no-underline transition duration-200 hover:bg-white/10 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               @click="closeMenu"
             >
               {{ link.label }}

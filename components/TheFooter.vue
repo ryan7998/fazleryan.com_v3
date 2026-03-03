@@ -17,7 +17,11 @@ const { canvasRef } = useCanvasWaves({
 </script>
 
 <template>
-  <footer class="relative overflow-hidden" style="background: linear-gradient(180deg, #0f0c29 0%, #1a1060 40%, #24243e 100%); min-height: 280px;">
+  <footer
+    id="contact"
+    class="relative overflow-hidden"
+    style="background: linear-gradient(180deg, #0f0c29 0%, #1a1060 40%, #24243e 100%); min-height: 280px;"
+  >
     <!-- JS canvas: waves + orbs -->
     <canvas ref="canvasRef" class="absolute inset-0 h-full w-full" aria-hidden="true" />
 
@@ -30,7 +34,7 @@ const { canvasRef } = useCanvasWaves({
         <!-- Brand -->
         <div class="space-y-2">
           <p class="font-heading text-xl font-bold text-white tracking-tight">
-            Fazle Ryan
+            Fazle Ryan Chowdhury
           </p>
           <p class="max-w-[320px] text-sm leading-relaxed" style="color: rgba(203,213,255,0.75);">
             Full-stack developer crafting reliable,<br>human-centered web products.
@@ -63,7 +67,7 @@ const { canvasRef } = useCanvasWaves({
               <i class="fa-brands fa-upwork text-sm" aria-hidden="true"></i>
             </a>
             <a
-              href="https://www.linkedin.com/in/fazleryan"
+              href="https://www.linkedin.com/in/fazle-ryan"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

@@ -4,7 +4,8 @@ const showFullAbout = ref(false)
 
 <template>
   <section
-    class="relative px-6 py-20"
+    id="about"
+    class="relative px-6 pt-10 pb-20"
     aria-labelledby="about-me-heading"
   >
     <div class="mx-auto w-full max-w-[1200px]">
@@ -66,7 +67,7 @@ const showFullAbout = ref(false)
           <div class="mt-5 flex justify-center">
             <button
               type="button"
-              class="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_14px_35px_rgba(37,99,235,0.45)] transition hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              class="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3 text-[14px] font-semibold text-white shadow-[0_14px_35px_rgba(37,99,235,0.45)] transition hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-white cursor-pointer"
               @click="showFullAbout = !showFullAbout"
             >
               <span>{{ showFullAbout ? 'Show less' : 'Read full bio' }}</span>

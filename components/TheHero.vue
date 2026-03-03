@@ -7,16 +7,9 @@ const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
 // Subtle animated orbs + bottom waves — sit behind the banner image on desktop,
 // and provide the full animated background on mobile where no image is shown.
 const { canvasRef: waveCanvasRef } = useCanvasWaves({
-  orbs: {
-    count: 10,
-    hues: [245, 260, 280, 220],
-    minR: 40, maxR: 120,
-    minOpacity: 0.2, maxOpacity: 0.5,
-    maxSpeed: 0.25,
-  },
   waves: [
-    { amp: 22, freq: 0.007, speed: 0.010, phase: 0,   yRatio: 0.55, color: 'rgba(99,  102, 241, 0.12)' },
-    { amp: 18, freq: 0.011, speed: 0.016, phase: 1.8, yRatio: 0.68, color: 'rgba(139,  92, 246, 0.16)' },
+    // { amp: 22, freq: 0.007, speed: 0.010, phase: 0,   yRatio: 0.55, color: 'rgba(99,  102, 241, 0.12)' },
+    // { amp: 18, freq: 0.011, speed: 0.016, phase: 1.8, yRatio: 0.68, color: 'rgba(139,  92, 246, 0.16)' },
     { amp: 14, freq: 0.015, speed: 0.022, phase: 3.5, yRatio: 0.80, color: 'rgba(168,  85, 247, 0.20)' },
   ],
 })
@@ -61,7 +54,7 @@ const heroPills = [
     <div class="hero-inner relative z-10 mx-auto w-full min-w-0 max-w-[1200px] flex flex-col gap-8 pb-6 md:pb-10">
       <div class="hero-copy max-w-[640px] font-heading">
         <h1 class="mb-5 text-[36px] font-bold leading-[1.15] text-[var(--hero-text-primary)] md:text-[42px] lg:text-[48px]">
-          Full-Stack Prouct Engineer building scalable web apps, APIs, and crawlers.
+          Full-Stack Product Engineer building scalable web apps, APIs, and crawlers.
         </h1>
         <p
           class="mb-8 max-w-[560px] text-base leading-relaxed text-[var(--hero-text-secondary)] md:text-lg"
@@ -71,7 +64,7 @@ const heroPills = [
         </p>
         <div class="mb-8 flex flex-wrap gap-3">
           <NuxtLink
-            to="/#portfolio"
+            to="/#product"
             class="hero-btn-primary inline-flex min-h-[48px] items-center justify-center rounded-xl px-7 py-3.5 text-[15px] font-semibold text-white no-underline shadow-lg transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent-purple)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:text-[16px]"
             style="background: var(--accent-purple);"
           >
