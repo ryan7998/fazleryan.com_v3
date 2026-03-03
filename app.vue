@@ -115,7 +115,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+  <div class="min-h-screen w-full overflow-x-hidden">
     <TheNav />
     <main>
       <NuxtPage />

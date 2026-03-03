@@ -49,7 +49,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  max-width: 100vw;
+  /* Avoid 100vw here — on Windows, 100vw includes the scrollbar width which
+     causes the body to be ~17px wider than the content area, creating a right gap. */
+  width: 100%;
   overflow-x: hidden;
   background:
     radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.6), transparent 55%),

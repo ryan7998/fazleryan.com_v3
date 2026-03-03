@@ -33,10 +33,11 @@ const heroPills = [
     @mouseleave="onMouseLeave"
     :style="style"
   >
-    <!-- Full-bleed banner only on desktop; on mobile we use text + circular image -->
+    <!-- Full-bleed banner (desktop only — hidden on mobile via scoped CSS, not Tailwind) -->
     <div
-      class="hero-banner-bg absolute inset-0 hidden bg-no-repeat md:block"
+      class="hero-banner-bg absolute inset-0"
       style="background-image: url('/hero-banner.png');"
+      aria-hidden="true"
     />
     <!-- Animated canvas: orbs + waves (always present; image sits on top on desktop) -->
     <canvas
@@ -119,12 +120,21 @@ const heroPills = [
   width: 100%;
   min-height: 65vh;
 }
+
+/* Hidden on mobile via scoped CSS (not Tailwind) so it is always in the stylesheet
+   at parse time — no dependency on Tailwind CSS injection timing. */
 .hero-banner-bg {
-  min-height: 100%;
+  display: none;
+  /* Size is explicit so it never depends on parent layout being resolved first */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center top;
   transform-origin: center;
-  transform: translate3d(calc(var(--hero-tilt-y, 0deg) * 0.6), calc(var(--hero-tilt-x, 0deg) * 0.6), 0);
+  transform: translate3d(0, 0, 0);
   transition: transform 200ms ease-out;
 }
 
@@ -137,7 +147,6 @@ const heroPills = [
   transition: transform 200ms ease-out;
 }
 
-/* Show more of the top of the photo in the circle (stops head from being cut) */
 .hero-mobile-img {
   object-position: center 20%;
 }
@@ -147,13 +156,13 @@ const heroPills = [
     0 0 0 4px color-mix(in oklch, var(--accent) 25%, transparent),
     0 20px 40px rgba(0, 0, 0, 0.15);
 }
+
 @media (min-width: 768px) {
   .hero-banner {
     min-height: 70vh;
-    aspect-ratio: 16 / 9;
-    background: none;
   }
   .hero-banner-bg {
+    display: block;
     background-position: right top;
   }
 }
