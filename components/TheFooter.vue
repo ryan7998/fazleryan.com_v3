@@ -17,20 +17,35 @@ const { canvasRef } = useCanvasWaves({
   ],
 })
 
-// Gentle tilt on individual footer blocks
+// Gentle tilt on individual footer blocks — drive transform directly from tiltX/tiltY
+// so no CSS-variable indirection is needed (avoids scoped-CSS specificity issues).
 const {
   containerRef: brandRef,
   onMouseMove: onBrandMove,
   onMouseLeave: onBrandLeave,
-  style: brandTiltStyle,
-} = useMouseTilt({ tiltAmount: 4, cssPrefix: 'footer-brand' })
+  tiltX: brandTiltX,
+  tiltY: brandTiltY,
+} = useMouseTilt({ tiltAmount: 20, cssPrefix: 'footer-brand' })
+
+const brandStyle = computed(() => ({
+  transform: `perspective(900px) rotateX(${brandTiltX.value}deg) rotateY(${brandTiltY.value}deg)`,
+  transition: 'transform 180ms ease-out',
+  transformStyle: 'preserve-3d',
+}))
 
 const {
   containerRef: navRef,
   onMouseMove: onNavMove,
   onMouseLeave: onNavLeave,
-  style: navTiltStyle,
-} = useMouseTilt({ tiltAmount: 4, cssPrefix: 'footer-nav' })
+  tiltX: navTiltX,
+  tiltY: navTiltY,
+} = useMouseTilt({ tiltAmount: 20, cssPrefix: 'footer-nav' })
+
+const navStyle = computed(() => ({
+  transform: `perspective(900px) rotateX(${navTiltX.value}deg) rotateY(${navTiltY.value}deg)`,
+  transition: 'transform 180ms ease-out',
+  transformStyle: 'preserve-3d',
+}))
 </script>
 
 <template>
@@ -51,8 +66,8 @@ const {
         <!-- Brand -->
         <div
           ref="brandRef"
-          class="space-y-2 footer-brand-tilt"
-          :style="brandTiltStyle"
+          class="space-y-2"
+          :style="brandStyle"
           @mousemove="onBrandMove"
           @mouseleave="onBrandLeave"
         >
@@ -107,8 +122,8 @@ const {
         <!-- Nav links -->
         <nav
           ref="navRef"
-          class="flex flex-col gap-3 text-sm md:items-end footer-nav-tilt"
-          :style="navTiltStyle"
+          class="flex flex-col gap-3 text-sm md:items-end"
+          :style="navStyle"
           @mousemove="onNavMove"
           @mouseleave="onNavLeave"
           aria-label="Footer navigation"
@@ -155,24 +170,3 @@ const {
   </footer>
 </template>
 
-<style scoped>
-.footer-brand-tilt,
-.footer-nav-tilt {
-  transform-style: preserve-3d;
-  transition: transform 180ms ease-out;
-}
-
-.footer-brand-tilt {
-  transform:
-    perspective(1100px)
-    rotateX(var(--footer-brand-tilt-x, 0deg))
-    rotateY(var(--footer-brand-tilt-y, 0deg));
-}
-
-.footer-nav-tilt {
-  transform:
-    perspective(1100px)
-    rotateX(var(--footer-nav-tilt-x, 0deg))
-    rotateY(var(--footer-nav-tilt-y, 0deg));
-}
-</style>
