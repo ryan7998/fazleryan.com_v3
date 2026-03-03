@@ -53,12 +53,6 @@ const showFullAbout = ref(false)
                 dashboard is where messy systems go to become understandable.
               </p>
               <p>
-                I’ve built a crawler platform with Playwright, real-time progress updates, queue-driven workers, and
-                structured extraction, because copy-paste is not a data strategy and neither is “run it again and hope.”
-                I’m comfortable with integrations too, like Stripe billing, third-party APIs, and the unglamorous parts
-                like webhooks, retries, and idempotency.
-              </p>
-              <p>
                 I use AI tools daily to move faster, but I do not ship AI spaghetti. I use them like power tools: great
                 for acceleration, dangerous without measurements. I still review, refactor, and test like a grown-up.
               </p>

@@ -4,6 +4,23 @@ const { containerRef, onMouseMove, onMouseLeave, style } = useMouseTilt({
   cssPrefix: 'hero',
 })
 
+// Subtle animated orbs + bottom waves — sit behind the banner image on desktop,
+// and provide the full animated background on mobile where no image is shown.
+const { canvasRef: waveCanvasRef } = useCanvasWaves({
+  orbs: {
+    count: 10,
+    hues: [245, 260, 280, 220],
+    minR: 40, maxR: 120,
+    minOpacity: 0.2, maxOpacity: 0.5,
+    maxSpeed: 0.25,
+  },
+  waves: [
+    { amp: 22, freq: 0.007, speed: 0.010, phase: 0,   yRatio: 0.55, color: 'rgba(99,  102, 241, 0.12)' },
+    { amp: 18, freq: 0.011, speed: 0.016, phase: 1.8, yRatio: 0.68, color: 'rgba(139,  92, 246, 0.16)' },
+    { amp: 14, freq: 0.015, speed: 0.022, phase: 3.5, yRatio: 0.80, color: 'rgba(168,  85, 247, 0.20)' },
+  ],
+})
+
 const heroPills = [
   'Laravel APIs',
   'Node.js Automation',
@@ -27,6 +44,12 @@ const heroPills = [
     <div
       class="hero-banner-bg absolute inset-0 hidden bg-no-repeat md:block"
       style="background-image: url('/hero-banner.png');"
+    />
+    <!-- Animated canvas: orbs + waves (always present; image sits on top on desktop) -->
+    <canvas
+      ref="waveCanvasRef"
+      class="absolute inset-0 h-full w-full pointer-events-none"
+      aria-hidden="true"
     />
     <!-- Overlay for text readability (desktop) -->
     <div
