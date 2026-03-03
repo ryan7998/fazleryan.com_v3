@@ -12,7 +12,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-[var(--bg-primary)]">
+  <div class="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
     <TheNav />
     <main>
       <NuxtPage />

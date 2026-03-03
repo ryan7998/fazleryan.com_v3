@@ -13,20 +13,9 @@ function closeProductModal() {
 <template>
   <section
     id="product"
-    class="relative overflow-hidden px-6 pt-10 pb-20 md:pt-14"
-    style="background: var(--bg-primary);"
+    class="relative overflow-hidden px-6 py-20"
     aria-labelledby="product-heading"
   >
-    <!-- Soft background glow, echoing hero styling -->
-    <div
-      class="pointer-events-none absolute inset-0 opacity-70"
-      style="
-        background:
-          radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.6), transparent 55%),
-          radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.35), transparent 55%);
-      "
-    />
-
     <div class="relative mx-auto w-full max-w-[1200px] space-y-10">
       <div
         class="relative -mt-6 grid grid-cols-1 items-center gap-10 rounded-[32px] border border-white/70 bg-white/80 px-8 py-10 shadow-[0_28px_80px_rgba(15,23,42,0.28)] backdrop-blur-2xl md:-mt-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:px-12 md:py-12"
@@ -35,9 +24,15 @@ function closeProductModal() {
         <div class="space-y-6">
           <h2
             id="product-heading"
-            class="font-heading text-2xl font-semibold tracking-tight text-[var(--hero-text-primary)] sm:text-3xl"
+            class="flex items-center gap-3 font-heading text-2xl font-semibold tracking-tight text-[var(--hero-text-primary)] sm:text-3xl"
           >
-            My Product: CrawlerPro
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-xl text-[var(--accent)]"
+              style="background: rgba(37, 99, 235, 0.15);"
+            >
+              <i class="fa-solid fa-diagram-project text-xl" aria-hidden="true"></i>
+            </span>
+            <span>My Product: CrawlerPro</span>
           </h2>
           <p
             class="text-[15px] leading-relaxed text-[var(--hero-text-secondary)] sm:text-base"

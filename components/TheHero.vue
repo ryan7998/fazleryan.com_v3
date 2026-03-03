@@ -17,7 +17,7 @@ const heroPills = [
 <template>
   <section
     ref="containerRef"
-    class="hero-banner relative flex w-full max-w-full items-center overflow-hidden px-6 pt-24 pb-10 box-border"
+    class="hero-banner relative flex w-full max-w-full items-center overflow-hidden px-6 py-20 box-border"
     aria-label="Hero"
     @mousemove="onMouseMove"
     @mouseleave="onMouseLeave"
